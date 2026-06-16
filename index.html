@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Krishna Bhure — AI Engineer & Frontend Developer</title>
+<meta name="description" content="Krishna Bhure — AI Engineer specializing in Machine Learning, Computer Vision, Deep Learning, and Frontend Development. Building intelligent systems that transform data into impactful solutions."/>
+<meta name="keywords" content="Krishna Bhure, AI Engineer, Machine Learning Engineer, Deep Learning, Computer Vision, Frontend Developer, React, TensorFlow, YOLOv8, Nagpur"/>
+<meta property="og:title" content="Krishna Bhure — AI Engineer"/>
+<meta property="og:description" content="Building Intelligent Systems That Transform Data Into Impactful Solutions."/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#0A0A0A;--bg2:#111111;--bg3:#161616;--bg4:#1a1a1a;
+--border:#ffffff12;--border2:#ffffff20;--border3:#ffffff35;
+--text:#ffffff;--text2:#a0a0a0;--text3:#666666;
+--blue:#3B82F6;--purple:#8B5CF6;--cyan:#06B6D4;
+--blue-dim:#3B82F615;--purple-dim:#8B5CF615;--cyan-dim:#06B6D415;
+--grad:linear-gradient(135deg,#3B82F6,#8B5CF6,#06B6D4);
+--grad2:linear-gradient(135deg,#3B82F620,#8B5CF620);
+--radius:12px;--radius2:20px;
+--font:'Inter',sans-serif;--font2:'Poppins',sans-serif;
+--transition:0.3s cubic-bezier(0.4,0,0.2,1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6;overflow-x:hidden}
+::selection{background:#3B82F630;color:var(--blue)}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--blue),var(--purple));border-radius:2px}
+
+/* ── Scroll progress ── */
+#scroll-progress{position:fixed;top:0;left:0;height:2px;background:var(--grad);z-index:9999;transition:width 0.1s linear;width:0%}
+
+/* ── Nav ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 0;transition:background var(--transition),border-color var(--transition)}
+nav.scrolled{background:rgba(10,10,10,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--font2);font-weight:700;font-size:1.2rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.02em}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:0.875rem;font-weight:500;transition:color var(--transition);letter-spacing:0.02em}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--blue);color:#fff;border:none;padding:0.5rem 1.25rem;border-radius:8px;font-size:0.875rem;font-weight:600;cursor:pointer;transition:all var(--transition);text-decoration:none;font-family:var(--font)}
+.nav-cta:hover{background:#2563EB;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:22px;height:2px;background:var(--text2);border-radius:2px;transition:all var(--transition)}
+
+/* ── Hero ── */
+#hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:80px}
+.hero-bg{position:absolute;inset:0;overflow:hidden}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);animation:orb-float 8s ease-in-out infinite alternate}
+.orb1{width:500px;height:500px;background:radial-gradient(circle,#3B82F618,transparent);top:-100px;right:-100px;animation-duration:10s}
+.orb2{width:400px;height:400px;background:radial-gradient(circle,#8B5CF618,transparent);bottom:-100px;left:-100px;animation-duration:12s;animation-delay:-4s}
+.orb3{width:300px;height:300px;background:radial-gradient(circle,#06B6D415,transparent);top:50%;left:50%;animation-duration:8s;animation-delay:-2s}
+@keyframes orb-float{0%{transform:translate(0,0) scale(1)}100%{transform:translate(30px,40px) scale(1.1)}}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%)}
+.hero-inner{max-width:1100px;margin:0 auto;padding:2rem;position:relative;z-index:1;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--blue-dim);border:1px solid #3B82F630;padding:0.4rem 1rem;border-radius:100px;font-size:0.8rem;color:var(--blue);font-weight:600;margin-bottom:2rem;letter-spacing:0.04em}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.5)}}
+h1.hero-name{font-family:var(--font2);font-size:clamp(3rem,7vw,5.5rem);font-weight:800;letter-spacing:-0.03em;line-height:1.05;margin-bottom:1.25rem}
+.hero-name span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-role{font-size:clamp(1.25rem,2.5vw,1.75rem);font-weight:500;color:var(--text2);margin-bottom:1.5rem;min-height:2.5rem;display:flex;align-items:center;gap:0.5rem}
+.typed-cursor{display:inline-block;width:3px;height:1.2em;background:var(--blue);border-radius:2px;animation:blink 1s step-end infinite;vertical-align:text-bottom}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-tagline{font-size:1.1rem;color:var(--text2);max-width:520px;line-height:1.7;margin-bottom:2.5rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--grad);color:#fff;border:none;padding:0.8rem 1.75rem;border-radius:10px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all var(--transition);text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--font)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px #3B82F630}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border2);padding:0.8rem 1.75rem;border-radius:10px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all var(--transition);text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--font)}
+.btn-outline:hover{border-color:var(--border3);background:var(--bg3);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:3rem;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid var(--border)}
+.hero-stat{text-align:left}
+.stat-num{font-family:var(--font2);font-size:2rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.stat-label{font-size:0.8rem;color:var(--text3);margin-top:0.25rem;font-weight:500;letter-spacing:0.04em;text-transform:uppercase}
+.floating-tags{position:absolute;right:5%;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:1rem;animation:float-tags 6s ease-in-out infinite alternate}
+@keyframes float-tags{0%{transform:translateY(-50%) translateX(0)}100%{transform:translateY(-52%) translateX(-10px)}}
+.float-tag{background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:0.75rem 1.25rem;font-size:0.85rem;font-weight:500;display:flex;align-items:center;gap:0.75rem;white-space:nowrap;transition:border-color var(--transition)}
+.float-tag:hover{border-color:var(--border3)}
+.tag-dot{width:8px;height:8px;border-radius:50%}
+
+/* ── Section base ── */
+section{padding:6rem 0}
+.container{max-width:1100px;margin:0 auto;padding:0 2rem}
+.section-label{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:0.75rem}
+.section-title{font-family:var(--font2);font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:700;letter-spacing:-0.02em;margin-bottom:1rem;line-height:1.2}
+.section-sub{color:var(--text2);font-size:1rem;line-height:1.7;max-width:550px}
+.section-header{margin-bottom:3.5rem}
+.divider{width:40px;height:3px;background:var(--grad);border-radius:2px;margin:1rem 0}
+
+/* ── About ── */
+#about{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about-text p{color:var(--text2);line-height:1.8;margin-bottom:1.25rem;font-size:0.975rem}
+.about-text p strong{color:var(--text);font-weight:600}
+.edu-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-top:1.5rem;position:relative;overflow:hidden;transition:border-color var(--transition)}
+.edu-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad)}
+.edu-card:hover{border-color:var(--border2)}
+.edu-card h4{font-size:1rem;font-weight:700;margin-bottom:0.25rem}
+.edu-card .uni{color:var(--text2);font-size:0.875rem;margin-bottom:0.5rem}
+.edu-card .cgpa{font-size:0.8rem;color:var(--blue);font-weight:600;background:var(--blue-dim);padding:0.2rem 0.6rem;border-radius:6px;display:inline-block}
+.about-right{display:flex;flex-direction:column;gap:1.25rem}
+.info-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:all var(--transition)}
+.info-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.info-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.info-card h4{font-size:0.9rem;font-weight:700;margin-bottom:0.2rem}
+.info-card p{font-size:0.825rem;color:var(--text2);line-height:1.5}
+
+/* ── Skills ── */
+#skills{background:var(--bg2)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
+.skill-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius2);padding:1.75rem;transition:all var(--transition);position:relative;overflow:hidden}
+.skill-card::after{content:'';position:absolute;inset:0;opacity:0;transition:opacity var(--transition)}
+.skill-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.skill-card-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem}
+.skill-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.skill-card h3{font-size:0.95rem;font-weight:700;letter-spacing:-0.01em}
+.skill-tags{display:flex;flex-wrap:wrap;gap:0.5rem}
+.skill-tag{background:var(--bg4);border:1px solid var(--border);color:var(--text2);padding:0.3rem 0.75rem;border-radius:100px;font-size:0.75rem;font-weight:500;transition:all var(--transition)}
+.skill-tag:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-dim)}
+
+/* ── Experience ── */
+#experience{background:var(--bg)}
+.exp-timeline{display:flex;flex-direction:column;gap:1.5rem}
+.exp-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius2);padding:2rem;position:relative;overflow:hidden;transition:all var(--transition)}
+.exp-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px}
+.exp-card.primary::before{background:var(--grad)}
+.exp-card.secondary::before{background:linear-gradient(135deg,#06B6D4,#3B82F6)}
+.exp-card:hover{border-color:var(--border2);transform:translateX(4px)}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem}
+.exp-title{font-size:1.1rem;font-weight:700;margin-bottom:0.2rem}
+.exp-company{font-size:0.9rem;color:var(--blue);font-weight:600}
+.exp-period{font-size:0.8rem;color:var(--text3);background:var(--bg4);border:1px solid var(--border);padding:0.3rem 0.75rem;border-radius:100px;white-space:nowrap;font-weight:500}
+.exp-list{list-style:none;margin-bottom:1.25rem}
+.exp-list li{color:var(--text2);font-size:0.9rem;line-height:1.7;padding-left:1.25rem;position:relative;margin-bottom:0.4rem}
+.exp-list li::before{content:'→';position:absolute;left:0;color:var(--blue);font-size:0.8rem}
+.exp-techs{display:flex;flex-wrap:wrap;gap:0.4rem}
+.tech-pill{background:var(--blue-dim);border:1px solid #3B82F625;color:var(--blue);padding:0.2rem 0.65rem;border-radius:100px;font-size:0.72rem;font-weight:600}
+
+/* ── Projects ── */
+#projects{background:var(--bg2)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
+.project-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius2);overflow:hidden;transition:all var(--transition);display:flex;flex-direction:column}
+.project-card:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,0.4)}
+.project-img{height:180px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.project-img-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative}
+.project-img-inner::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,var(--bg3))}
+.project-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+.project-tag{font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--purple);margin-bottom:0.5rem}
+.project-title{font-size:1.05rem;font-weight:700;line-height:1.3;margin-bottom:0.75rem}
+.project-desc{font-size:0.875rem;color:var(--text2);line-height:1.7;margin-bottom:1rem;flex:1}
+.project-features{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1.25rem}
+.feature-chip{background:var(--purple-dim);border:1px solid #8B5CF620;color:#a78bfa;padding:0.2rem 0.6rem;border-radius:100px;font-size:0.7rem;font-weight:500}
+.project-footer{display:flex;gap:0.75rem;flex-wrap:wrap}
+.btn-sm{padding:0.5rem 1rem;border-radius:8px;font-size:0.8rem;font-weight:600;cursor:pointer;transition:all var(--transition);text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;border:1px solid var(--border2);background:transparent;color:var(--text);font-family:var(--font)}
+.btn-sm:hover{background:var(--bg4);border-color:var(--border3)}
+.btn-sm.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn-sm.primary:hover{background:#2563EB}
+
+/* ── Certifications ── */
+#certifications{background:var(--bg)}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
+.cert-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;transition:all var(--transition);position:relative;overflow:hidden}
+.cert-card::before{content:'';position:absolute;top:0;right:0;width:80px;height:80px;border-radius:50%;opacity:0.15;transform:translate(30px,-30px)}
+.cert-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.cert-issuer{font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.75rem}
+.cert-name{font-size:1rem;font-weight:700;line-height:1.3;margin-bottom:0.5rem}
+.cert-year{font-size:0.8rem;color:var(--text3);font-weight:500}
+.cert-badge{position:absolute;top:1.5rem;right:1.5rem;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+
+/* ── Achievements ── */
+#achievements{background:var(--bg2)}
+.achiev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.25rem}
+.achiev-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;text-align:center;transition:all var(--transition)}
+.achiev-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.achiev-icon{font-size:2.5rem;margin-bottom:1rem;display:block}
+.achiev-card h4{font-size:0.95rem;font-weight:700;margin-bottom:0.4rem;line-height:1.3}
+.achiev-card p{font-size:0.8rem;color:var(--text2)}
+
+/* ── Contact ── */
+#contact{background:var(--bg)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:1rem}
+.contact-item{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:var(--text);transition:all var(--transition)}
+.contact-item:hover{border-color:var(--border2);transform:translateX(4px)}
+.contact-item-icon{width:40px;height:40px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.contact-item-text h4{font-size:0.9rem;font-weight:700;margin-bottom:0.1rem}
+.contact-item-text p{font-size:0.8rem;color:var(--text2)}
+.contact-form{display:flex;flex-direction:column;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:0.4rem}
+.form-group label{font-size:0.8rem;font-weight:600;color:var(--text2);letter-spacing:0.04em;text-transform:uppercase}
+.form-group input,.form-group textarea{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:0.85rem 1rem;color:var(--text);font-family:var(--font);font-size:0.925rem;transition:all var(--transition);outline:none;width:100%;resize:vertical}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--blue);background:var(--bg4)}
+.form-group textarea{min-height:130px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.submit-btn{background:var(--grad);color:#fff;border:none;padding:0.875rem 2rem;border-radius:10px;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all var(--transition);font-family:var(--font);width:100%}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px #3B82F640}
+.form-success{display:none;background:#06B6D415;border:1px solid #06B6D430;color:var(--cyan);border-radius:10px;padding:1rem;text-align:center;font-weight:600;font-size:0.9rem}
+
+/* ── Footer ── */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 0}
+.footer-inner{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:gap}
+.footer-copy{font-size:0.85rem;color:var(--text3)}
+.footer-copy span{color:var(--blue);font-weight:600}
+.footer-links{display:flex;gap:1rem}
+.footer-link{width:38px;height:38px;border:1px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--text2);text-decoration:none;transition:all var(--transition);font-size:1rem}
+.footer-link:hover{border-color:var(--border2);color:var(--text);background:var(--bg3)}
+
+/* ── Back to top ── */
+#btt{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;border-radius:12px;background:var(--blue);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:all var(--transition);font-size:1.1rem;z-index:999}
+#btt.show{opacity:1;pointer-events:auto}
+#btt:hover{background:#2563EB;transform:translateY(-2px)}
+
+/* ── Reveal animations ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s cubic-bezier(0.4,0,0.2,1),transform 0.6s cubic-bezier(0.4,0,0.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+
+/* ── Mobile menu ── */
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(10,10,10,0.97);backdrop-filter:blur(20px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--text);text-decoration:none;font-size:1.5rem;font-weight:600;font-family:var(--font2);transition:color var(--transition)}
+.mobile-menu a:hover{color:var(--blue)}
+.close-menu{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;width:40px;height:40px;display:flex;align-items:center;justify-content:center}
+
+/* ── Responsive ── */
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}
+  .hero-inner{padding:1.5rem}
+  .floating-tags{display:none}
+  .hero-stats{gap:1.5rem;flex-wrap:wrap}
+  .form-row{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;gap:1.5rem;text-align:center}
+  section{padding:4rem 0}
+  .container{padding:0 1.25rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="close-menu" onclick="closeMobile()" aria-label="Close menu">✕</button>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#skills" onclick="closeMobile()">Skills</a>
+  <a href="#experience" onclick="closeMobile()">Experience</a>
+  <a href="#projects" onclick="closeMobile()">Projects</a>
+  <a href="#certifications" onclick="closeMobile()">Certifications</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- Nav -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="logo">KB.</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="mailto:krishnabhure2004@gmail.com" class="nav-cta">Hire Me</a>
+    <div class="hamburger" onclick="openMobile()" role="button" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="grid-bg"></div>
+    <div class="hero-orb orb1"></div>
+    <div class="hero-orb orb2"></div>
+    <div class="hero-orb orb3"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span>Available for opportunities</span>
+    </div>
+    <h1 class="hero-name">Krishna<br/><span>Bhure</span></h1>
+    <div class="hero-role">
+      <span id="typed-role"></span><span class="typed-cursor"></span>
+    </div>
+    <p class="hero-tagline">Building Intelligent Systems That Transform Data Into Impactful Solutions.</p>
+    <div class="hero-btns">
+      <a href="mailto:krishnabhure2004@gmail.com" class="btn-primary">✉ Contact Me</a>
+      <a href="#projects" class="btn-outline">View Projects →</a>
+      <a href="https://github.com/Krishnabhure04" target="_blank" rel="noopener" class="btn-outline">GitHub ↗</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">AI Projects</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Certifications</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Internships</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">8.01</div>
+        <div class="stat-label">CGPA</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="floating-tags">
+    <div class="float-tag"><span class="tag-dot" style="background:#3B82F6"></span>Machine Learning</div>
+    <div class="float-tag"><span class="tag-dot" style="background:#8B5CF6"></span>Computer Vision</div>
+    <div class="float-tag"><span class="tag-dot" style="background:#06B6D4"></span>Deep Learning</div>
+    <div class="float-tag"><span class="tag-dot" style="background:#10B981"></span>React.js</div>
+    <div class="float-tag"><span class="tag-dot" style="background:#F59E0B"></span>YOLOv8</div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">About Me</div>
+      <h2 class="section-title">Passionate AI Engineer<br/>& Frontend Developer</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm a final-year <strong>B.Tech AI student</strong> at GH Raisoni College of Engineering, Nagpur, with a deep passion for building intelligent systems that solve real-world problems.</p>
+        <p>My expertise spans <strong>Computer Vision, Deep Learning, and Explainable AI</strong> — I've built end-to-end systems including a YOLO-based lung disease detection pipeline with Grad-CAM explainability and PDF report generation.</p>
+        <p>On the frontend, I've worked as a developer intern at both <strong>Bluestock FinTech</strong> and <strong>Raycura Medical Technologies</strong>, building production-grade React.js applications, integrating REST APIs, and delivering responsive, performant UIs.</p>
+        <p>I aim to bridge the gap between AI research and real-world engineering — building systems that are not just accurate, but transparent, scalable, and impactful.</p>
+        <div class="edu-card">
+          <h4>B.Tech in Artificial Intelligence</h4>
+          <div class="uni">G H Raisoni College of Engineering, Nagpur · 2022–2026</div>
+          <span class="cgpa">CGPA: 8.01 / 10</span>
+        </div>
+      </div>
+      <div class="about-right reveal reveal-delay-1">
+        <div class="info-card">
+          <div class="info-icon" style="background:#3B82F615;font-size:1.4rem">🤖</div>
+          <div>
+            <h4>AI & Machine Learning</h4>
+            <p>CNNs, YOLOv8, TensorFlow, PyTorch, Grad-CAM, Federated Learning, Explainable AI for healthcare applications.</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon" style="background:#8B5CF615;font-size:1.4rem">👁️</div>
+          <div>
+            <h4>Computer Vision</h4>
+            <p>Real-time object detection, medical image analysis, OpenCV pipelines, YOLO-based disease detection systems.</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon" style="background:#06B6D415;font-size:1.4rem">⚛️</div>
+          <div>
+            <h4>Frontend Development</h4>
+            <p>React.js, responsive UI design, REST API integration, PostgreSQL, Bootstrap — production-ready web apps.</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon" style="background:#10B98115;font-size:1.4rem">🔬</div>
+          <div>
+            <h4>AI Research Interests</h4>
+            <p>Healthcare AI, Explainable AI, Federated Learning, AI for social impact, bridging ML research and deployment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Technical Skills</div>
+      <h2 class="section-title">Tools & Technologies</h2>
+      <div class="divider"></div>
+      <p class="section-sub">A curated set of technologies I use to build intelligent, scalable, and beautiful products.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-card-header">
+          <div class="skill-icon" style="background:#3B82F615">🤖</div>
+          <h3>Artificial Intelligence</h3>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">Machine Learning</span>
+          <span class="skill-tag">Deep Learning</span>
+          <span class="skill-tag">Computer Vision</span>
+          <span class="skill-tag">Explainable AI</span>
+          <span class="skill-tag">Federated Learning</span>
+          <span class="skill-tag">CNNs</span>
+          <span class="skill-tag">NLP Basics</span>
+        </div>
+      </div>
+      <div class="skill-card reveal reveal-delay-1">
+        <div class="skill-card-header">
+          <div class="skill-icon" style="background:#8B5CF615">💻</div>
+          <h3>Programming Languages</h3>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">SQL</span>
+        </div>
+      </div>
+      <div class="skill-card reveal reveal-delay-2">
+        <div class="skill-card-header">
+          <div class="skill-icon" style="background:#06B6D415">🧠</div>
+          <h3>AI Frameworks</h3>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">YOLOv8</span>
+          <span class="skill-tag">Scikit-Learn</span>
+          <span class="skill-tag">OpenCV</span>
+          <span class="skill-tag">Keras</span>
+          <span class="skill-tag">MobileNet</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-header">
+          <div class="skill-icon" style="background:#10B98115">⚛️</div>
+          <h3>Web Development</h3>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">React.js</span>
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3</span>
+          <span class="skill-tag">Bootstrap</span>
+          <span class="skill-tag">Tailwind CSS</span>
+          <span class="skill-tag">Flask</span>
+          <span class="skill-tag">REST APIs</span>
+        </div>
+      </div>
+      <div class="skill-card reveal reveal-delay-1">
+        <div class="skill-card-header">
+          <div class="skill-icon" style="background:#F59E0B15">🗄️</div>
+          <h3>Databases & Cloud</h3>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">DBMS</span>
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">Google Cloud</span>
+        </div>
+      </div>
+      <div class="skill-card reveal reveal-delay-2">
+        <div class="skill-card-header">
+          <div class="skill-icon" style="background:#EF444415">🛠️</div>
+          <h3>Tools & Platforms</h3>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">GitHub</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Jupyter</span>
+          <span class="skill-tag">VS Code</span>
+          <span class="skill-tag">Linux</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section id="experience">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Experience</div>
+      <h2 class="section-title">Professional Journey</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="exp-timeline">
+      <div class="exp-card secondary reveal">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Frontend Developer Intern</div>
+            <div class="exp-company">Raycura Medical Technologies Pvt. Ltd., Nagpur</div>
+          </div>
+          <div class="exp-period">Dec 2025 – May 2026</div>
+        </div>
+        <ul class="exp-list">
+          <li>Enhanced and maintained the company website using HTML, CSS, Bootstrap, JavaScript, and React.js</li>
+          <li>Improved website responsiveness, UX, and overall performance across devices</li>
+          <li>Developed reusable UI components following modern frontend development practices</li>
+          <li>Assisted in debugging, testing, and optimizing web applications for production deployment</li>
+        </ul>
+        <div class="exp-techs">
+          <span class="tech-pill">React.js</span>
+          <span class="tech-pill">HTML5</span>
+          <span class="tech-pill">CSS3</span>
+          <span class="tech-pill">Bootstrap</span>
+          <span class="tech-pill">JavaScript</span>
+        </div>
+      </div>
+      <div class="exp-card primary reveal reveal-delay-1">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Software Development Engineer Intern</div>
+            <div class="exp-company">Bluestock FinTech, Pune (Remote)</div>
+          </div>
+          <div class="exp-period">Jul 2025 – Aug 2025</div>
+        </div>
+        <ul class="exp-list">
+          <li>Built a responsive IPO Web Application for managing IPO listings, applications, and user data</li>
+          <li>Developed dynamic user interfaces using React.js, HTML5, CSS3, and Bootstrap</li>
+          <li>Integrated RESTful APIs for seamless communication between web and mobile applications</li>
+          <li>Implemented PostgreSQL database operations for secure storage and retrieval of IPO/user data</li>
+          <li>Optimized performance, ensured cross-browser compatibility and mobile responsiveness</li>
+        </ul>
+        <div class="exp-techs">
+          <span class="tech-pill">React.js</span>
+          <span class="tech-pill">Flask</span>
+          <span class="tech-pill">PostgreSQL</span>
+          <span class="tech-pill">RESTful APIs</span>
+          <span class="tech-pill">Bootstrap</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Projects</div>
+      <h2 class="section-title">Featured Work</h2>
+      <div class="divider"></div>
+      <p class="section-sub">End-to-end AI systems and web applications built with real-world impact in mind.</p>
+    </div>
+    <div class="projects-grid">
+      <!-- Project 1 - Featured -->
+      <div class="project-card reveal" style="grid-column:span 1">
+        <div class="project-img" style="background:linear-gradient(135deg,#0a0a2e,#1a1a4e)">
+          <div class="project-img-inner">🫁</div>
+        </div>
+        <div class="project-body">
+          <div class="project-tag">🏆 Flagship Research Project</div>
+          <div class="project-title">Explainable Federated Deep Learning for Lung Disease Detection</div>
+          <p class="project-desc">An intelligent computer vision system detecting multiple lung diseases from chest X-ray images using a customized YOLOv8 model with Grad-CAM explainability and automated PDF report generation.</p>
+          <div class="project-features">
+            <span class="feature-chip">YOLOv8</span>
+            <span class="feature-chip">Explainable AI</span>
+            <span class="feature-chip">Grad-CAM</span>
+            <span class="feature-chip">Federated Learning</span>
+            <span class="feature-chip">Medical Imaging</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/Krishnabhure04" target="_blank" rel="noopener" class="btn-sm primary">GitHub ↗</a>
+            <span class="btn-sm" style="cursor:default;opacity:0.6">Python · OpenCV · CNNs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-img" style="background:linear-gradient(135deg,#0e1a2e,#1e2e4e)">
+          <div class="project-img-inner">📊</div>
+        </div>
+        <div class="project-body">
+          <div class="project-tag">FinTech · Web App</div>
+          <div class="project-title">IPO Admin Panel Web Application</div>
+          <p class="project-desc">A full-stack responsive web application for managing IPO listings, user applications, and financial data with admin dashboard, authentication, and real-time API integration.</p>
+          <div class="project-features">
+            <span class="feature-chip">React.js</span>
+            <span class="feature-chip">Flask API</span>
+            <span class="feature-chip">PostgreSQL</span>
+            <span class="feature-chip">REST APIs</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/Krishnabhure04" target="_blank" rel="noopener" class="btn-sm primary">GitHub ↗</a>
+            <span class="btn-sm" style="cursor:default;opacity:0.6">Bluestock FinTech</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card reveal reveal-delay-2">
+        <div class="project-img" style="background:linear-gradient(135deg,#1a0e2e,#2e1a4e)">
+          <div class="project-img-inner">🏥</div>
+        </div>
+        <div class="project-body">
+          <div class="project-tag">Healthcare AI · Desktop App</div>
+          <div class="project-title">AI-Powered X-Ray Analysis Desktop App</div>
+          <p class="project-desc">Desktop application allowing clinicians to upload chest X-ray images, receive disease predictions with annotated bounding boxes, and automatically generate detailed PDF diagnostic reports.</p>
+          <div class="project-features">
+            <span class="feature-chip">Computer Vision</span>
+            <span class="feature-chip">Disease Detection</span>
+            <span class="feature-chip">PDF Reports</span>
+            <span class="feature-chip">OpenCV</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/Krishnabhure04" target="_blank" rel="noopener" class="btn-sm primary">GitHub ↗</a>
+            <span class="btn-sm" style="cursor:default;opacity:0.6">Python · TensorFlow</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Certifications -->
+<section id="certifications">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Certifications</div>
+      <h2 class="section-title">Learning & Growth</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card reveal" style="border-color:#3B82F625">
+        <div class="cert-badge" style="background:#3B82F615;font-size:1.4rem">🏅</div>
+        <div class="cert-issuer" style="color:var(--blue)">Microsoft + Edunet Foundation</div>
+        <div class="cert-name">Foundation of Artificial Intelligence</div>
+        <div class="cert-year">Microsoft AI Fundamentals Program</div>
+      </div>
+      <div class="cert-card reveal reveal-delay-1" style="border-color:#10B98125">
+        <div class="cert-badge" style="background:#10B98115;font-size:1.4rem">🎓</div>
+        <div class="cert-issuer" style="color:#10B981">Google</div>
+        <div class="cert-name">Google AI Essentials</div>
+        <div class="cert-year">Google Career Certificates</div>
+      </div>
+      <div class="cert-card reveal reveal-delay-2" style="border-color:#8B5CF625">
+        <div class="cert-badge" style="background:#8B5CF615;font-size:1.4rem">🤖</div>
+        <div class="cert-issuer" style="color:var(--purple)">Microsoft + LinkedIn</div>
+        <div class="cert-name">Career Essentials in Generative AI</div>
+        <div class="cert-year">Microsoft LinkedIn Learning Path</div>
+      </div>
+      <div class="cert-card reveal reveal-delay-3" style="border-color:#F59E0B25">
+        <div class="cert-badge" style="background:#F59E0B15;font-size:1.4rem">📜</div>
+        <div class="cert-issuer" style="color:#F59E0B">NPTEL</div>
+        <div class="cert-name">Business Ethics — Elite Certification</div>
+        <div class="cert-year">Score: 67% — NPTEL India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Achievements -->
+<section id="achievements">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Achievements & Leadership</div>
+      <h2 class="section-title">Recognition & Impact</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="achiev-grid">
+      <div class="achiev-card reveal">
+        <span class="achiev-icon">🥈</span>
+        <h4>Runner-Up — AI Department Project Exhibition</h4>
+        <p>Recognised for the Lung Disease Detection AI system among top engineering projects</p>
+      </div>
+      <div class="achiev-card reveal reveal-delay-1">
+        <span class="achiev-icon">🏫</span>
+        <h4>Student Representative Council Member</h4>
+        <p>Represented AI department students in college governance and academic activities</p>
+      </div>
+      <div class="achiev-card reveal reveal-delay-2">
+        <span class="achiev-icon">⚖️</span>
+        <h4>Discipline In-Charge — AI Department</h4>
+        <p>Led discipline and coordination responsibilities for the Artificial Intelligence department</p>
+      </div>
+      <div class="achiev-card reveal reveal-delay-3">
+        <span class="achiev-icon">🚀</span>
+        <h4>Event Organiser — AI Odyssey & Startup Spark</h4>
+        <p>Co-organised major college tech and entrepreneurship events, leading teams and managing logistics</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-title">Let's Build Something<br/>Intelligent Together</h2>
+      <div class="divider"></div>
+      <p class="section-sub">Open to AI engineering roles, research collaborations, and frontend development opportunities.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <a href="mailto:krishnabhure2004@gmail.com" class="contact-item">
+          <div class="contact-item-icon" style="background:#3B82F615;font-size:1.2rem">✉️</div>
+          <div class="contact-item-text">
+            <h4>Email</h4>
+            <p>krishnabhure2004@gmail.com</p>
+          </div>
+        </a>
+        <a href="https://linkedin.com/in/krishna-bhure-589735246" target="_blank" rel="noopener" class="contact-item">
+          <div class="contact-item-icon" style="background:#0A66C215;font-size:1.2rem">💼</div>
+          <div class="contact-item-text">
+            <h4>LinkedIn</h4>
+            <p>linkedin.com/in/krishna-bhure-589735246</p>
+          </div>
+        </a>
+        <a href="https://github.com/Krishnabhure04" target="_blank" rel="noopener" class="contact-item">
+          <div class="contact-item-icon" style="background:#ffffff10;font-size:1.2rem">🐙</div>
+          <div class="contact-item-text">
+            <h4>GitHub</h4>
+            <p>github.com/Krishnabhure04</p>
+          </div>
+        </a>
+        <div class="contact-item" style="cursor:default">
+          <div class="contact-item-icon" style="background:#10B98115;font-size:1.2rem">📍</div>
+          <div class="contact-item-text">
+            <h4>Location</h4>
+            <p>Nagpur, Maharashtra, India</p>
+          </div>
+        </div>
+        <div class="contact-item" style="cursor:default">
+          <div class="contact-item-icon" style="background:#F59E0B15;font-size:1.2rem">📱</div>
+          <div class="contact-item-text">
+            <h4>Phone</h4>
+            <p>+91 7276062612</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form reveal reveal-delay-1">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" id="f-name" placeholder="John Doe"/>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="f-email" placeholder="john@company.com"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" id="f-subject" placeholder="AI Engineering Opportunity / Collaboration"/>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="f-msg" placeholder="Hi Krishna, I'd love to discuss..."></textarea>
+        </div>
+        <button class="submit-btn" onclick="submitForm()">Send Message →</button>
+        <div class="form-success" id="form-success">✅ Thanks! I'll get back to you soon.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">
+      Designed & developed by <span>Krishna Bhure</span> · © 2026 · All rights reserved
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/Krishnabhure04" target="_blank" rel="noopener" class="footer-link" aria-label="GitHub" title="GitHub">🐙</a>
+      <a href="https://linkedin.com/in/krishna-bhure-589735246" target="_blank" rel="noopener" class="footer-link" aria-label="LinkedIn" title="LinkedIn">💼</a>
+      <a href="mailto:krishnabhure2004@gmail.com" class="footer-link" aria-label="Email" title="Email">✉️</a>
+    </div>
+  </div>
+</footer>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<script>
+// Scroll progress
+const prog=document.getElementById('scroll-progress');
+window.addEventListener('scroll',()=>{
+  const pct=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
+  prog.style.width=pct+'%';
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+  document.getElementById('btt').classList.toggle('show',window.scrollY>400);
+});
+
+// Typed role animation
+const roles=['AI Engineer','Machine Learning Engineer','Frontend Developer','Computer Vision Enthusiast','AI Researcher'];
+let ri=0,ci=0,deleting=false;
+const el=document.getElementById('typed-role');
+function type(){
+  const word=roles[ri];
+  if(!deleting){
+    el.textContent=word.slice(0,ci+1);
+    ci++;
+    if(ci===word.length){deleting=true;setTimeout(type,1800);return;}
+  } else {
+    el.textContent=word.slice(0,ci-1);
+    ci--;
+    if(ci===0){deleting=false;ri=(ri+1)%roles.length;}
+  }
+  setTimeout(type,deleting?60:90);
+}
+type();
+
+// Reveal on scroll
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Mobile menu
+function openMobile(){document.getElementById('mobile-menu').classList.add('open')}
+function closeMobile(){document.getElementById('mobile-menu').classList.remove('open')}
+
+// Contact form
+function submitForm(){
+  const n=document.getElementById('f-name').value.trim();
+  const e=document.getElementById('f-email').value.trim();
+  const m=document.getElementById('f-msg').value.trim();
+  if(!n||!e||!m){alert('Please fill in all required fields.');return;}
+  const s=document.getElementById('form-success');
+  s.style.display='block';
+  document.querySelectorAll('#contact input,#contact textarea').forEach(i=>i.value='');
+  const href='mailto:krishnabhure2004@gmail.com?subject='+encodeURIComponent(document.getElementById('f-subject').value||'Portfolio Contact')+'&body='+encodeURIComponent('From: '+n+'\nEmail: '+e+'\n\n'+m);
+  window.location.href=href;
+}
+</script>
+</body>
+</html>
